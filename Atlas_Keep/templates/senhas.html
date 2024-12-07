@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suas Senhas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Senhas Salvas</h1>
+    <ul>
+        {% for password in passwords %}
+        <li>
+            <strong>Site:</strong> {{ password.site_name }} <br>
+            <strong>Link:</strong> <a href="{{ password.site_link }}">{{ password.site_link }}</a> <br>
+            <strong>Email/Login:</strong> {{ password.email_login }} <br>
+            <strong>Senha:</strong> {{ password.password }}
+        </li>
+        <hr>
+        {% endfor %}
+    </ul>
+    <a href="/">Voltar</a>
+</body>
+</html>
